@@ -11,4 +11,12 @@ const commonError = {
 
 exports.errorCodes = {
   ...commonError,
+  'ERR-101': {
+    httpStatus: 404,
+    message: 'Not Found.',
+  },
+  'ERR-102': {
+    httpStatus: 404,
+    message: 'username/agentId or email already exists.',
+  },
 };
