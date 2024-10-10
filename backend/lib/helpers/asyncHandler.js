@@ -9,7 +9,7 @@ exports.asyncHandler = (fn) => async (req, res, next) => {
     await fn(req, res, next);
     return undefined;
   } catch (error) {
-    if (NODE_ENV === 'dev') logError(error);
+    if (NODE_ENV === 'dev') console.error(error);
     console.error(
       `${(req.user && req.user.id) || 'common'} - ${error.message} - ${
         errorCodes[error.message] ? errorCodes[error.message].message : 'Unknown Error'
