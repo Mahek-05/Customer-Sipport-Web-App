@@ -19,4 +19,8 @@ exports.errorCodes = {
     httpStatus: 404,
     message: 'username/agentId or email already exists.',
   },
+  'ERR-103': {
+    httpStatus: 404,
+    message: 'agentId is required if ticket status has top be updated to resolved or assigned.',
+  },
 };
