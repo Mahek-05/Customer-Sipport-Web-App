@@ -4,9 +4,9 @@ const { errorHandler, responseHandler } = require('../../lib/helpers/responseHan
 const mongoose = require('mongoose');
 
 exports.createTicket = asyncHandler(async (req, res) => {
-  const { customerUsername, issueTitle } = req.value;
+  const { username, issueTitle } = req.value;
   const body = {
-    customerUsername,
+    username,
     issueTitle,
   };
   const ticket = await ticketServices.create({ body });
@@ -32,12 +32,12 @@ exports.updateTicket = asyncHandler(async (req, res) => {
 });
 
 exports.getTicket = asyncHandler(async (req, res) => {
-  const { customerUsername, agentId, searchText, status } = req.value;
+  const { username, agentId, searchText, status } = req.value;
   
   let filter = {};
   
-  if(customerUsername && customerUsername != '') {
-    filter.customerUsername = customerUsername
+  if(username && username != '') {
+    filter.username = username
   };
   
   if(agentId && agentId !== '') {
@@ -59,7 +59,7 @@ exports.getTicket = asyncHandler(async (req, res) => {
     {
       $lookup: {
         from: 'customers',
-        localField: 'customerUsername',
+        localField: 'username',
         foreignField: 'username',
         as: 'customerDetails'
       }

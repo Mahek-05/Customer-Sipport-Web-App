@@ -14,5 +14,4 @@ const serverConfig = require('../lib/configs/server.config');
   } catch (err) {
     console.error('Connection failed!', err.message);
   }
-})();const { path } = require('animejs');
-const { config } = require('dotenv');
+})();

@@ -6,6 +6,8 @@ exports.socketEvents = {
   PAIR_FAILED: 'pairFailed',
   PAIR_SUCCESS: 'pairSuccess',
   CUSTOMER_JOIN: 'customer_join',
+  CUSTOMER_JOINED: 'customer_joined',
+  AGENT_VIEW_CHAT: 'agent_view_chat',
   AGENT_JOIN: 'agent_join',
   AGENT_LEAVE: 'agent_leave',
   SEND_MESSAGE: 'send_message',

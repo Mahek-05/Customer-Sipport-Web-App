@@ -6,10 +6,10 @@ const { Schema } = mongoose;
 
 const ticketSchema = new Schema(
   {
-    customerUsername: { type: mongoose.Schema.Types.ObjectId, ref: 'customers', required: true, index: true},
+    username: { type: String, required: true, index: true}, // ticket owner customer
     issueTitle: { type: String, required: true },
     status: { type: String, enum: ['unassigned', 'assigned', 'resolved', ], required: true, default: 'unassigned'},
-    agentId: { type: String, required: false, index: true},
+    agentId: { type: String, required: false, index: true}, // assigned agent
   },
   {
     timestamps: true,
