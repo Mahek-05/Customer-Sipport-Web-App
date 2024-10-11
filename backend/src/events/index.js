@@ -89,18 +89,6 @@ exports.initializeSocketIO = (io) => {
 
       });
 
-      // // Handle agent leaving the room
-      // socket.on(socketEvents.AGENT_LEAVE, ({ agentId, ticketId }) => {
-      //   console.info(`Agent ${agentId} left room ${ticketId}`);
-
-      //   if (activeAgents[ticketId] === agentId) {
-      //     // If the agent leaving is the active agent in the room, remove them
-      //     delete activeAgents[ticketId];
-      //     socket.leave(ticketId);
-      //     socket.to(ticketId).emit(socketEvents.AGENT_LEFT, { agentId });
-      //   }
-      // });
-
       socket.on(socketEvents.DISCONNECT, () => {
         console.info(`User disconnected.`);
       });
