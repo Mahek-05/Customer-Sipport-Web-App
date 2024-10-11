@@ -5,4 +5,13 @@ exports.socketEvents = {
   ERROR: 'error',
   PAIR_FAILED: 'pairFailed',
   PAIR_SUCCESS: 'pairSuccess',
+  CUSTOMER_JOIN: 'customer_join',
+  AGENT_JOIN: 'agent_join',
+  AGENT_LEAVE: 'agent_leave',
+  SEND_MESSAGE: 'send_message',
+  RECEIVE_MESSAGE: 'receive_message',
+  AGENT_JOINED: 'agent_joined',
+  AGENT_LEFT: 'agent_left',
+  AGENT_DENIED: 'agent_denied',
+  MESSAGE_HISTORY: 'message_history',
 };
