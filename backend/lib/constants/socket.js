@@ -16,4 +16,6 @@ exports.socketEvents = {
   AGENT_LEFT: 'agent_left',
   AGENT_DENIED: 'agent_denied',
   MESSAGE_HISTORY: 'message_history',
+  AGENT_MESSAGE: 'agent_message',
+  CUSTOMER_MESSAGE: 'customer_message',
 };
