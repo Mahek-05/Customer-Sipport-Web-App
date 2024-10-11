@@ -18,3 +18,5 @@ package-lock.json
 
 # Optional npm cache directory
 .npm
+
+socket-test.js

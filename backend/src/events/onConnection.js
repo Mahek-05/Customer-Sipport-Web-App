@@ -6,7 +6,6 @@ const agentServices = require('../services/agent.services');
 
 exports.onConnection = async (socket) => {
   try {
-
     if (socket?.handshake?.headers?.agentid) {
       const { agentid } = socket.handshake.headers;
       const agent = await agentServices.findOne({ filter: { agentId: agentid }})
@@ -17,6 +16,9 @@ exports.onConnection = async (socket) => {
       const customer = await customerServices.findOne({ filter: { username }})
       socket.customerData = customer;
       console.info(`Customer connected with username: ${socket.customerData.username}`);
+    } else {
+      console.error('Invalid connection request.');
+      return;
     }
 
     socket.emit(socketEvents.PAIR_SUCCESS, {
