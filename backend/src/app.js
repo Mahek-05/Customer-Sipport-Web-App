@@ -37,6 +37,10 @@ app.use(morgan('dev'));
 // Routes
 app.use('/', Routes);
 
+app.get('/', cors(), (req, res) => {
+  res.send('Hello World!');
+});
+
 // Health check route
 app.get('/health-check', cors(), (req, res) => {
   console.info('Health check passed!');
