@@ -50,7 +50,7 @@ exports.getTicket = asyncHandler(async (req, res) => {
   
   let tickets = [];
   
-  if(filter.length > 0) {
+  if (Object.keys(filter).length > 0) {
     tickets.push({ $match: { ...filter } });
   };
   
