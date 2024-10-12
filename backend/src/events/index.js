@@ -21,7 +21,7 @@ exports.initializeSocketIO = (io) => {
         const ticket = await ticketServices.findById({ id: ticketId }); 
 
         // Fetch message history for this ticketId
-        const messageHistory = await messageServices.find({ filter: { ticketId}, sort: { createdAt: -1 } });
+        const messageHistory = await messageServices.find({ filter: { ticketId}, sort: { createdAt: 1 } });
 
         // Send message history to the customer
         socket.emit(socketEvents.MESSAGE_HISTORY, messageHistory);
@@ -44,7 +44,7 @@ exports.initializeSocketIO = (io) => {
           const ticket = await ticketServices.findById({ id: ticketId }); 
 
           // Fetch message history for this ticketId
-          const messageHistory = await messageServices.find({ filter: { ticketId}, sort: { createdAt: -1 } });
+          const messageHistory = await messageServices.find({ filter: { ticketId}, sort: { createdAt: 1 } });
 
           // Send message history to the agent
           socket.emit(socketEvents.MESSAGE_HISTORY, { ticket, messageHistory });
@@ -65,24 +65,22 @@ exports.initializeSocketIO = (io) => {
         console.info(`Message received in room ${ticketId}`);
         const ticket = await ticketServices.findById({ id: ticketId });
         if(socket.agentData && ticket.agentId && ticket.agentId === socket.agentData.agentId && ticket.status !== 'unassigned') {    
-          await messageServices.create({ body: {
+          const newMessage = await messageServices.create({ body: {
             content,
             agentId: socket.agentData.agentId,
             sender: 'agent',
             ticketId,
           }});
-          // Emit the message to everyone in the room
-          socket.to(ticketId).emit(socketEvents.RECEIVE_MESSAGE, { agentId: socket.agentData.agentId , content });
+          io.in(ticketId).emit(socketEvents.RECEIVE_MESSAGE, {newMessage});
         } else if (socket.customerData) {
-            await messageServices.create({ body: {
+            const newMessage = await messageServices.create({ body: {
               content,
               username: socket.customerData.username,
               sender: 'customer',
               ticketId,
             }});
-
             // Emit the message to everyone in the room
-            socket.to(ticketId).emit(socketEvents.RECEIVE_MESSAGE, { username: socket.customerData.username , content });
+            io.in(ticketId).emit(socketEvents.RECEIVE_MESSAGE, {newMessage});
         } else {
           console.error('Invalid user trying to send message');
         }
@@ -100,6 +98,3 @@ exports.initializeSocketIO = (io) => {
     }
   });
 };
-
-
-

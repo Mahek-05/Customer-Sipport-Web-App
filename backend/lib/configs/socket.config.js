@@ -1,5 +1,5 @@
 module.exports = {
-  mongoUri: process.env.MONGO_URI,
+  socketUri: process.env.SOCKET_URI,
   mongoOptions: {
     useNewUrlParser: true,
     useUnifiedTopology: true,

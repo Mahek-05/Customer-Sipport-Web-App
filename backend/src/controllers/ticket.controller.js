@@ -1,7 +1,7 @@
 const ticketServices = require('../services/ticket.services');
 const { asyncHandler } = require('../../lib/helpers/asyncHandler');
 const { errorHandler, responseHandler } = require('../../lib/helpers/responseHandler');
-const mongoose = require('mongoose');
+
 
 exports.createTicket = asyncHandler(async (req, res) => {
   const { username, issueTitle } = req.value;
