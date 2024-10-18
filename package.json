@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node backend/src/index.js",
-    "dev": "cross-env NODE_ENV=dev nodemon backend/src/index.js",
+    "dev": "cross-env nodemon backend/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
