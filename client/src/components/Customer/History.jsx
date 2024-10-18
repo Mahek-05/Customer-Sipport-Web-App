@@ -37,7 +37,8 @@ export default function History() {
       <ul className="space-y-2 ">
         {chatHistory.length > 0 ? (
           chatHistory.map((chat) => (
-            console.log("Chat ID:", chat.id);
+            console.log("Chat ID: ", chat.id);
+            console.log("Chat", chat);
             <li key={chat.id} className="flex justify-between border-b pb-2">
               <span>{chat.issueTitle || chat.text}</span>
               <Link to={`/customer/ticket/${chat.id}`} className="text-gray-500">
