@@ -13,7 +13,8 @@ const httpServer = createServer(app);
 // Configure CORS for Socket.IO
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:5173', 
+    // origin: 'http://localhost:5173', 
+    origin: process.env.FRONTEND_URI,
     credentials: true 
   }
 });
@@ -21,7 +22,8 @@ const io = new Server(httpServer, {
 app.set('io', io);
 
 app.use(cors({
-  origin: '*', // Adjust if you need stricter rules
+  // origin: '*', // Adjust if you need stricter rules
+  origin: process.env.FRONTEND_URI,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'agentid','username'], 
 }));
