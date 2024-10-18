@@ -2,7 +2,7 @@
 You can access the live website here: https://customer-support-web-app.vercel.app/auth/customer/login
 (backend is hosted on render on free tier so it takes time in response, please have patience.)
 
-## Login i ssuggested using these ids:
+## Login is suggested using these ids:
 agent id: saurav or satyam
 customer id: mahek
 
