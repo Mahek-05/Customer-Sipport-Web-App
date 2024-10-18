@@ -36,7 +36,7 @@ export default function History() {
       {error && <div className="text-red-500">Error loading chat history: {error.message}</div>}
       <ul className="space-y-2 ">
         {chatHistory.length > 0 ? (
-          chatHistory.map((chat) => (
+          chatHistory.map((chat) => {
             console.log("Chat ID: ", chat.id);
             console.log("Chat", chat);
             return ( 
@@ -47,7 +47,7 @@ export default function History() {
               </Link>
             </li>
             );
-          ))
+          })
         ) : (
           <li className="text-gray-500">No chat history found.</li>
         )}
