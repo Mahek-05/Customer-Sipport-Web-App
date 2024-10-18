@@ -13,7 +13,7 @@ const httpServer = createServer(app);
 // Configure CORS for Socket.IO
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.FRONTEND_URI || 'http://localhost:5173', 
+    origin: 'http://localhost:5173', 
     credentials: true 
   }
 });
@@ -36,10 +36,6 @@ app.use(morgan('dev'));
 
 // Routes
 app.use('/', Routes);
-
-app.get('/', cors(), (req, res) => {
-  res.send('Hello World!');
-});
 
 // Health check route
 app.get('/health-check', cors(), (req, res) => {
