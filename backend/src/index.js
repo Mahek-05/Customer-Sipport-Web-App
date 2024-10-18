@@ -1,6 +1,4 @@
-require('dotenv').config({
-  path: `./.env.${process.env.NODE_ENV}`,
-});
+require('dotenv').config();
 const { connectDB } = require('../lib/helpers/connectDb');
 const httpServer = require('./app');
 const serverConfig = require('../lib/configs/server.config');
