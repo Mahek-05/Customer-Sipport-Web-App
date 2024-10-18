@@ -1,6 +1,6 @@
 # Customer Support Web App
 You can access the live website here: https://customer-support-web-app.vercel.app/auth/customer/login
-(backend i shosted on render on free tier so it takes time in response, please have patience.)
+(backend is hosted on render on free tier so it takes time in response, please have patience.)
 
 ## Login i ssuggested using these ids:
 agent id: saurav or satyam
