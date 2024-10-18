@@ -39,12 +39,14 @@ export default function History() {
           chatHistory.map((chat) => (
             console.log("Chat ID: ", chat.id);
             console.log("Chat", chat);
-            <li key={chat.id} className="flex justify-between border-b pb-2">
+            return ( 
+              <li key={chat.id} className="flex justify-between border-b pb-2">
               <span>{chat.issueTitle || chat.text}</span>
               <Link to={`/customer/ticket/${chat.id}`} className="text-gray-500">
                 View Chat
               </Link>
             </li>
+            );
           ))
         ) : (
           <li className="text-gray-500">No chat history found.</li>
