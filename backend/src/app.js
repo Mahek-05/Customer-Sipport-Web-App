@@ -13,7 +13,8 @@ const httpServer = createServer(app);
 // Configure CORS for Socket.IO
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://localhost:5173', 
+    // origin: 'http://localhost:5173', 
+    origin: 'process.env.FRONTEND_URI',
     credentials: true 
   }
 });
