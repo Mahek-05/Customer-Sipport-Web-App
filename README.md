@@ -1,4 +1,10 @@
 # Customer Support Web App
+You can access the live website here: https://customer-support-web-app.vercel.app/auth/customer/login
+(backend i shosted on render on free tier so it takes time in response, please have patience.)
+
+## Login i ssuggested using these ids:
+agent id: saurav or satyam
+customer id: mahek
 
 A web-based platform designed to facilitate customer support through real-time communication between customers and agents. The application enables customers to submit support requests and chat with agents in real-time, while agents can manage and resolve multiple support tickets, making sure only one agent can work on a ticket at once.
 
