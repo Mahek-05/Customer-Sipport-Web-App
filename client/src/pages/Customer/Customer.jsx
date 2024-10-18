@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export function Customer() {
   const navigate = useNavigate();
   const {id} = useParams();
-  
+  console.log("id in Customer page:", id);
   const [userData, setUserData] = useState(null);
   useEffect(() => {
     const storedUserDataString = localStorage.getItem('UserData');  
@@ -29,7 +29,7 @@ export function Customer() {
         <History />
       </div>
       <div className="flex items-center justify-center w-[70vw] h-[70vh]">
-        {id ? <Chat userData={userData}/> : <NewRequest /> }
+        {id ? <Chat userData={userData} ticketId={id}/> : <NewRequest /> }
       </div>
     </div>
   );

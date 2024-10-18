@@ -1,15 +1,17 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import io from "socket.io-client";
 
 const SOCKET_SERVER_URL = import.meta.env.VITE_API_BASE_URL;
 
-export function Chat({ userData }) {
+export function Chat({ userData, ticketId }) {
+  console.log("userData:", userData.customer);
   const username = userData.customer.username;
-  const { id } = useParams();
-  const TICKET_ID = id;
-  console.log(TICKET_ID)
+  // const { id } = useParams();
+  console.log("ticket id in props:", ticketId);
+  const TICKET_ID = ticketId;
+  console.log("TICKET_ID:",TICKET_ID);
 
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
